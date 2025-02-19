@@ -121,7 +121,6 @@
             <h1 class="tips">{tip}</h1>
         {/if}
     </div>
-{/if}
 
 <Overlay visible={error != ""}>
     {error}
