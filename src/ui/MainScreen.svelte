@@ -100,11 +100,11 @@
             <div class="space"></div>
             {#if $config.miniMenu}
                 <button on:click={() => layers = layers.next("help")}>Help</button>
-                <div class="space"></div>
             {/if}
             {#if !$config.miniMenu}
                 <button class="big" on:click={() => layers = layers.next("connect")}>Connect to server</button>
             {/if}
+            <div class="space"></div>
             <div class="cols">
                 <button on:click={() => layers = layers.next("settings")}>Settings</button>
                 {#if !$config.miniMenu}
