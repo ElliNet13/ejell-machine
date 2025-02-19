@@ -114,8 +114,10 @@
                 <button on:click={quit}>Quit</button>
             {/if}
         </div>
-        <button class="center help_button big" on:click={() => layers = layers.next("help")}>Help</button>
-        <h1 class="tips">{tip}</h1>
+        <button class="{!$config.miniMenu ? 'center help_button big' : ''}" on:click={() => layers = layers.next("help")}>Help</button>
+        {#if !$config.miniMenu}
+            <h1 class="tips">{tip}</h1>
+        {/if}
     </div>
 {/if}
 
