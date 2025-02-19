@@ -25,6 +25,7 @@ const defaultConfig = {
     tickSpeed: 200,
     uiScale: 1,
     keyboardOnly: false,
+    miniMenu: false,
     animation: true,
     showDebug: false,
     showBackgroundGrid: true,

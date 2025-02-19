@@ -7,6 +7,7 @@
     import { LevelGridProvider } from "./gridProvider/LevelGridProvider";
     import { gridProvider } from "./uiState";
     import { isWeb, quit } from "@utils/platform";
+    import { $config, config } from "@utils/config";
 
     const logoURL = URL.createObjectURL(logo);
 
@@ -92,17 +93,23 @@
 {#if visible}
     <div class="overlay_container">
         <div class="overlay">
-            <img src={logoURL} alt="Logo" />
+            {#if !$config.miniMenu}
+                <img src={logoURL} alt="Logo" />
+            {/if}
             <button class="big" on:click={() => layers = layers.next("create")}>Create new level</button>
             <div class="space"></div>
             <button class="big" on:click={importClipboard}>Import from clipboard</button>
             <div class="space"></div>
-            <button class="big" on:click={() => layers = layers.next("connect")}>Connect to server</button>
-            <div class="space"></div>
+            {#if !$config.miniMenu}
+                <button class="big" on:click={() => layers = layers.next("connect")}>Connect to server</button>
+                <div class="space"></div>
+            {/if}
             <div class="cols">
-                <button on:click={() => layers = layers.next("settings")}>Settings</button>
-                <button on:click={() => layers = layers.next("mods")}>Mods</button>
-                <button on:click={() => window.open('https://github.com/ElliNet13/ejell-machine', '_blank')}>Open Github Repo</button>
+                <button on:click={() => layers = layers.next("settings")} class:big={$config.miniMenu}>Settings</button>
+                {#if !$config.miniMenu}
+                    <button on:click={() => layers = layers.next("mods")}>Mods</button>
+                    <button on:click={() => window.open('https://github.com/ElliNet13/ejell-machine', '_blank')}>Open Github Repo</button>
+                {/if}
             </div>
             {#if !isWeb}
                 <div class="space"></div>
@@ -110,7 +117,9 @@
             {/if}
         </div>
         <button class="center help_button big" on:click={() => layers = layers.next("help")}>Help</button>
-        <h1 class="tips">{tip}</h1>
+        {#if !$config.miniMenu}
+            <h1 class="tips">{tip}</h1>
+        {/if}
     </div>
 {/if}
 
