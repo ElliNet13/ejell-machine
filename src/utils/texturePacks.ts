@@ -49,7 +49,7 @@ const uiTextures = {
     structures: "buttonStructures.png",
 };
 
-class Textures {
+export class Textures {
     currentPack: Writable<TexturePack> = writable(null as any as TexturePack);
     defaultPack!: TexturePack;
     packPaths: string[] = [];
