@@ -34,6 +34,6 @@
     <tr><td>Animations:</td><td><input type="checkbox" bind:checked={$config.animation} /></td></tr>
     <tr><td>Main background:</td><td><input type="checkbox" bind:checked={$config.mainScreenBackground} /></td></tr>
     <tr><td>Keyboard-only mode:</td><td><input type="checkbox" bind:checked={$config.keyboardOnly} /></td></tr>
-    <tr><td>Note sound length:</td><td><input type="number" bind:value={$config.troh} /></td></tr>
     <tr><td>Use mini menu: </td><td><input type="checkbox" bind:checked={$config.miniMenu} /></td></tr>
+    <tr><td>Note sound length:</td><td><input type="number" bind:value={$config.troh} /></td></tr>
 </table>

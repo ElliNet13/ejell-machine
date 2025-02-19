@@ -94,13 +94,13 @@
     <div class="overlay_container">
         <div class="overlay">
             <img src={logoURL} alt="Logo" />
-            <button class="big" on:click={() => layers = layers.next("create")}>Create new level</button>
+            <button class:big="{!$config.miniMenu}" on:click={() => layers = layers.next("create")}>Create new level</button>
             <div class="space"></div>
-            <button class="big" on:click={importClipboard}>Import from clipboard</button>
+            <button class:big="{!$config.miniMenu}" on:click={importClipboard}>Import from clipboard</button>
             <div class="space"></div>
             {#if !$config.miniMenu}
                 <button class="big" on:click={() => layers = layers.next("connect")}>Connect to server</button>
-                <div class="space"></div>
+            <div class="space"></div>
             {/if}
             <div class="cols">
                 <button on:click={() => layers = layers.next("settings")}>Settings</button>
