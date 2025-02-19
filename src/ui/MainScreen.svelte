@@ -37,6 +37,9 @@
         "This game has been made in over one year",
         "ElliNet13 ElliNet13 ElliNet13 ElliNet13 ElliNet13 ElliNet13 ElliNet13 ElliNet13 ElliNet13",
         "This is very epic",
+        "Cell Machine > Jell Machine > EJell Machine",
+        "0 players",
+        "Who needs players?",
     ];
     let tip: string;
     $: if (visible) tip = tips[Math.floor(Math.random() * tips.length)];
