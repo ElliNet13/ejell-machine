@@ -92,10 +92,10 @@
 {#if visible}
     <div class="overlay_container">
         <div class="overlay">
+            <button class="big" on:click={() => layers = layers.next("create")}>Create new level</button>
+            <div class="space"></div>
             <img src={logoURL} alt="Logo" />
             <button class="big" on:click={importClipboard}>Import from clipboard</button>
-            <div class="space"></div>
-            <button class="big" on:click={() => layers = layers.next("create")}>Create new level</button>
             <div class="space"></div>
             <button class="big" on:click={() => layers = layers.next("connect")}>Connect to server</button>
             <div class="space"></div>
