@@ -21,7 +21,7 @@ async function write(config: Config) {
 }
 
 const defaultConfig = {
-    texturePack: "defaultPack",
+    texturePack: false as string | false,
     tickSpeed: 200,
     uiScale: 1,
     keyboardOnly: false,

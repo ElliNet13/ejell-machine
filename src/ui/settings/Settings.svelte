@@ -36,13 +36,4 @@
     <tr><td>Main background:</td><td><input type="checkbox" bind:checked={$config.mainScreenBackground} /></td></tr>
     <tr><td>Keyboard-only mode:</td><td><input type="checkbox" bind:checked={$config.keyboardOnly} /></td></tr>
     <tr><td>Note sound length:</td><td><input type="number" bind:value={$config.troh} /></td></tr>
-    <tr>
-        <td>Texture Pack:</td>
-        <td>
-            <select bind:value={$config.texturePack}>
-                <option value="false">Default</option>
-                <option value="googleImages">Google images</option>
-            </select>
-        </td>
-    </tr>
 </table>
