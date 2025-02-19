@@ -102,7 +102,7 @@ export class Textures {
 
         for (const k of Object.keys(textureMapping) as (keyof typeof textureMapping)[]) {
             const filename = textureMapping[k];
-            const blob = files[`/assets/defaultPack/${filename}`] as Blob;
+            const blob = files[`/assets/googleImages/${filename}`] as Blob;
             Texture.fromBlob(blob).then(texture => {
                 cells[k] = texture;
             });
