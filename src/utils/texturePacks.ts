@@ -42,6 +42,8 @@ const textureMapping = {
     bg: "BG.png",
     border: "_.png",
     unknown: "unknown.png",
+
+    mover2: "mover2.png",
 };
 const uiTextures = {
     play: "buttonPlay.png",
