@@ -104,13 +104,13 @@
                 <button class="big" on:click={() => layers = layers.next("connect")}>Connect to server</button>
                 <div class="space"></div>
             {/if}
-            <div class="cols">
+            <div class:cols={!config.miniMenu}>
                 <button on:click={() => layers = layers.next("settings")} class:big={$config.miniMenu}>Settings</button>
                 {#if !$config.miniMenu}
                     <button on:click={() => layers = layers.next("mods")}>Mods</button>
                     <button on:click={() => window.open('https://github.com/ElliNet13/ejell-machine', '_blank')}>Open Github Repo</button>
                 {/if}
-            </div>
+                
             {#if !isWeb}
                 <div class="space"></div>
                 <button on:click={quit}>Quit</button>
