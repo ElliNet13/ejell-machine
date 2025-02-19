@@ -1,5 +1,13 @@
 <script lang="ts">
     import { config } from "@utils/config";
+    import { Textures } from "@utils/texturePacks";
+  
+    let selectedPack = $config.texturePack;
+  
+    function changePack(packName: string) {
+      Textures.instance.use(packName);
+      $config.texturePack = packName;
+    }
 </script>
 
 <style lang="scss">
@@ -36,4 +44,8 @@
     <tr><td>Main background:</td><td><input type="checkbox" bind:checked={$config.mainScreenBackground} /></td></tr>
     <tr><td>Keyboard-only mode:</td><td><input type="checkbox" bind:checked={$config.keyboardOnly} /></td></tr>
     <tr><td>Note sound length:</td><td><input type="number" bind:value={$config.troh} /></td></tr>
+    <select bind:value={selectedPack} on:change={() => changePack(selectedPack)}>
+        <option value="default">Default</option>
+        <option value="googleImages">Google Images</option>
+      </select>
 </table>

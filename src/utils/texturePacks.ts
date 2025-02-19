@@ -122,7 +122,7 @@ class Textures {
             const filename = textureMapping[k];
             let imageContent: Uint8Array;
             try {
-                imageContent = await readBinaryFile(`textures/${name}/${filename}`, { dir: BaseDirectory.AppData });
+                imageContent = await readBinaryFile(`assets/${name}/${filename}`, { dir: BaseDirectory.AppData });
             }
             catch {
                 return false;
