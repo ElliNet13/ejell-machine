@@ -98,6 +98,9 @@
             <div class="space"></div>
             <button class:big="{!$config.miniMenu}" on:click={importClipboard}>Import from clipboard</button>
             <div class="space"></div>
+            {#if $config.miniMenu}
+                <button on:click={() => layers = layers.next("help")}>Help</button>
+            {/if}
             {#if !$config.miniMenu}
                 <button class="big" on:click={() => layers = layers.next("connect")}>Connect to server</button>
             <div class="space"></div>
@@ -114,8 +117,8 @@
                 <button on:click={quit}>Quit</button>
             {/if}
         </div>
-        <button class="{!$config.miniMenu ? 'center help_button big' : ''}" on:click={() => layers = layers.next("help")}>Help</button>
         {#if !$config.miniMenu}
+            <button class="center help_button big" on:click={() => layers = layers.next("help")}>Help</button>
             <h1 class="tips">{tip}</h1>
         {/if}
     </div>
