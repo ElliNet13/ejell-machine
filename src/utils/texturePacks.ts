@@ -43,7 +43,7 @@ const textureMapping = {
     border: "_.png",
     unknown: "unknown.png",
 
-    mover2: "mover2.png",
+    // Add my stuff
 };
 const uiTextures = {
     play: "buttonPlay.png",
