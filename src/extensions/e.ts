@@ -17,12 +17,10 @@ export function load() {
     
                 override push(dir: Direction, bias: number) {
                     if (this.disabled) return super.push(dir, bias);
-                    for (let i = 0; i < 2; i++) {
-                        
-                        if (dir == this.direction) return super.push(dir, bias + 1);
-                        if (((dir + 2) & 3) == this.direction) return super.push(dir, bias - 1);
 
-                    }
+                    if (dir == this.direction) return super.push(dir, bias + 2);
+                    if (((dir + 2) & 3) == this.direction) return super.push(dir, bias - 2);
+
                     return super.push(dir, bias);
                 }
             },
