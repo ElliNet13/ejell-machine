@@ -92,18 +92,17 @@
 {#if visible}
     <div class="overlay_container">
         <div class="overlay">
+            <img src={logoURL} alt="Logo" />
             <button class="big" on:click={() => layers = layers.next("create")}>Create new level</button>
             <div class="space"></div>
-            <img src={logoURL} alt="Logo" />
             <button class="big" on:click={importClipboard}>Import from clipboard</button>
             <div class="space"></div>
             <button class="big" on:click={() => layers = layers.next("connect")}>Connect to server</button>
             <div class="space"></div>
-            <button class="big" on:click={() => window.open('https://github.com/ElliNet13/ejell-machine', '_blank')}>Open Github Repo</button>
-            <div class="space"></div>
             <div class="cols">
                 <button on:click={() => layers = layers.next("settings")}>Settings</button>
                 <button on:click={() => layers = layers.next("mods")}>Mods</button>
+                <button on:click={() => window.open('https://github.com/ElliNet13/ejell-machine', '_blank')}>Open Github Repo</button>
             </div>
             {#if !isWeb}
                 <div class="space"></div>
