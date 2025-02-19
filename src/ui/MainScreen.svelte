@@ -31,7 +31,6 @@
             console.error(res);
         }
     }
-
     const tips = [
         "Jell Machine was inspired by Pyll Machine",
         "This project is fully free and open source",
@@ -43,7 +42,6 @@
         "0 players",
         "Who needs players?",
     ];
-
     let tip: string;
     $: if (visible) tip = tips[Math.floor(Math.random() * tips.length)];
 </script>
@@ -82,7 +80,6 @@
         position: absolute;
         z-index: 102;
     }
-
     .tips {
         right: 5%;
         bottom: 4%;
@@ -96,43 +93,34 @@
 {#if visible}
     <div class="overlay_container">
         <div class="overlay">
-            {#if !$config.miniMenu}
-                <img src={logoURL} alt="Logo" />
-            {/if}
+            <img src={logoURL} alt="Logo" />
             <button class="big" on:click={() => layers = layers.next("create")}>Create new level</button>
             <div class="space"></div>
             <button class="big" on:click={importClipboard}>Import from clipboard</button>
             <div class="space"></div>
-            
             {#if !$config.miniMenu}
                 <button class="big" on:click={() => layers = layers.next("connect")}>Connect to server</button>
                 <div class="space"></div>
             {/if}
-
-            <div class:cols={!$config.miniMenu}>
-                <button on:click={() => layers = layers.next("settings")} class:big={$config.miniMenu}>Settings</button>
+            <div class="cols">
+                <button on:click={() => layers = layers.next("settings")}>Settings</button>
                 {#if !$config.miniMenu}
                     <button on:click={() => layers = layers.next("mods")}>Mods</button>
                     <button on:click={() => window.open('https://github.com/ElliNet13/ejell-machine', '_blank')}>Open Github Repo</button>
                 {/if}
             </div>
-
             {#if !isWeb}
                 <div class="space"></div>
                 <button on:click={quit}>Quit</button>
             {/if}
-
-            <button class="center help_button big" on:click={() => layers = layers.next("help")}>Help</button>
-
-            {#if !$config.miniMenu}
-                <h1 class="tips">{tip}</h1>
-            {/if}
         </div>
+        <button class="center help_button big" on:click={() => layers = layers.next("help")}>Help</button>
+        <h1 class="tips">{tip}</h1>
     </div>
-
-    <Overlay visible={error != ""}>
-        {error}
-        <div class="space"></div>
-        <button class="center" on:click={() => error = ""}>Back</button>
-    </Overlay>
 {/if}
+
+<Overlay visible={error != ""}>
+    {error}
+    <div class="space"></div>
+    <button class="center" on:click={() => error = ""}>Back</button>
+</Overlay>
