@@ -12,14 +12,14 @@ export function load() {
             description: "Moves forward two cells and pushes all cells in the way.",
             behavior: class MoverCell extends Cell {
                 override update() {
-                    super.push(this.direction, 1);
+                    super.push(this.direction, 2);
                 }
     
                 override push(dir: Direction, bias: number) {
                     if (this.disabled) return super.push(dir, bias);
 
                     if (dir == this.direction) return super.push(dir, bias + 2);
-                    if (((dir + 2) & 3) == this.direction) return super.push(dir, bias - 2);
+                    if (((dir + 3) & 4) == this.direction) return super.push(dir, bias - 2);
 
                     return super.push(dir, bias);
                 }
