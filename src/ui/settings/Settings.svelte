@@ -1,18 +1,30 @@
 <script lang="ts">
     import { config } from "@utils/config";
-    import { Textures } from "@utils/texturePacks";
-  
-    let selectedPack = $config.texturePack;
-  
-    function changePack(packName: string) {
-      Textures.instance.use(packName);
-      $config.texturePack = packName;
-    }
 </script>
 
-<style>
-    table > tr > td:last-child > input:not([type=checkbox]) {
-      width: 100%;
+<style lang="scss">
+    table {
+        border: 0;
+        border-collapse: separate;
+        border-spacing: 0 15px;
+        height: 100%;
+        width: 100%;
+
+        > tr {
+            > td:first-child {
+                font-weight: bold;
+                padding-right: 10px;
+                text-align: right;
+                white-space: nowrap;
+            }
+            > td:last-child {
+                width: 100%;
+
+                > input:not([type="checkbox"]) {
+                    width: 100%;
+                }
+            }
+        }
     }
 </style>
 
@@ -23,8 +35,4 @@
     <tr><td>Main background:</td><td><input type="checkbox" bind:checked={$config.mainScreenBackground} /></td></tr>
     <tr><td>Keyboard-only mode:</td><td><input type="checkbox" bind:checked={$config.keyboardOnly} /></td></tr>
     <tr><td>Note sound length:</td><td><input type="number" bind:value={$config.troh} /></td></tr>
-    <select bind:value={selectedPack} on:change={() => changePack(selectedPack)}>
-        <option value="default">Default</option>
-        <option value="googleImages">Google Images</option>
-      </select>
 </table>

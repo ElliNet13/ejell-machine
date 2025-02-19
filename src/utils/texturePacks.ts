@@ -49,7 +49,7 @@ const uiTextures = {
     structures: "buttonStructures.png",
 };
 
-export class Textures {
+class Textures {
     currentPack: Writable<TexturePack> = writable(null as any as TexturePack);
     defaultPack!: TexturePack;
     packPaths: string[] = [];
@@ -102,7 +102,7 @@ export class Textures {
 
         for (const k of Object.keys(textureMapping) as (keyof typeof textureMapping)[]) {
             const filename = textureMapping[k];
-            const blob = files[`/assets/googleImages/${filename}`] as Blob;
+            const blob = files[`/assets/defaultPack/${filename}`] as Blob;
             Texture.fromBlob(blob).then(texture => {
                 cells[k] = texture;
             });
@@ -122,7 +122,7 @@ export class Textures {
             const filename = textureMapping[k];
             let imageContent: Uint8Array;
             try {
-                imageContent = await readBinaryFile(`assets/${name}/${filename}`, { dir: BaseDirectory.AppData });
+                imageContent = await readBinaryFile(`textures/${name}/${filename}`, { dir: BaseDirectory.AppData });
             }
             catch {
                 return false;
