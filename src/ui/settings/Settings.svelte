@@ -10,30 +10,9 @@
     }
 </script>
 
-<style lang="scss">
-    table {
-        border: 0;
-        border-collapse: separate;
-        border-spacing: 0 15px;
-        height: 100%;
-        width: 100%;
-
-        > tr {
-            > td:first-child {
-                font-weight: bold;
-                padding-right: 10px;
-                text-align: right;
-                white-space: nowrap;
-            }
-            > td:last-child {
-                width: 100%;
-
-                > input:not([type="checkbox"]),
-                > select {
-                    width: 100%;
-                }
-            }
-        }
+<style>
+    table > tr > td:last-child > input:not([type=checkbox]) {
+      width: 100%;
     }
 </style>
 
