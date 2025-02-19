@@ -34,8 +34,9 @@
         "Jell Machine was inspired by Pyll Machine",
         "This project is fully free and open source",
         "Try to use keyboard shortcuts as much as you can",
-        "Jell Machine has terrible performance lol",
         "This game has been made in over one year",
+        "ElliNet13 ElliNet13 ElliNet13 ElliNet13 ElliNet13 ElliNet13 ElliNet13 ElliNet13 ElliNet13",
+        "This is very epic",
     ];
     let tip: string;
     $: if (visible) tip = tips[Math.floor(Math.random() * tips.length)];
@@ -94,6 +95,8 @@
             <button class="big" on:click={() => layers = layers.next("create")}>Create new level</button>
             <div class="space"></div>
             <button class="big" on:click={() => layers = layers.next("connect")}>Connect to server</button>
+            <div class="space"></div>
+            <button class="big" on:click={() => window.open('https://github.com/ElliNet13/ejell-machine', '_blank')}>Open Github Repo</button>
             <div class="space"></div>
             <div class="cols">
                 <button on:click={() => layers = layers.next("settings")}>Settings</button>
