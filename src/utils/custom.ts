@@ -7,10 +7,11 @@ import { Direction } from "@core/cells/direction";
  */
 export const playSound = (url: string) => {
     const audio = new Audio(url);
+    audio.volume = 0.5; // Set volume to 50%
     audio.play().catch((error) => {
       console.error("Error playing sound:", error);
     });
-};
+  };  
 
 /**
  * Returns a random direction.
