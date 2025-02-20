@@ -43,7 +43,8 @@ const textureMapping = {
     border: "_.png",
     unknown: "unknown.png",
 
-    // Add my stuff
+    // My stuff
+    drill: "drill.png",
 };
 const uiTextures = {
     play: "buttonPlay.png",
