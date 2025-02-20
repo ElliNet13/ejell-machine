@@ -3,7 +3,7 @@ import { CellType } from "@core/cells/cellType";
 import { Direction } from "@core/cells/direction";
 import { UpdateType } from "@core/grid/cellUpdates";
 import { Slot } from "@core/slot";
-import nukeSound from "@sounds/logo.png?blob";
+import nukeSound from "@sounds/nuke-bomb.mp3?blob";
 const nukeSoundURL = URL.createObjectURL(nukeSound);
 
 const playSound = (url: string) => {
