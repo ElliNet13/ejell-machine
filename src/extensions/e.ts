@@ -5,7 +5,7 @@ import { UpdateType } from "@core/grid/cellUpdates";
 import { Slot } from "@core/slot";
 import { playSound, getRandomDirection } from "@utils/custom";
 import nukeSound from "/sounds/nuke-bomb.mp3?blob";
-import eatingSound from "/sounds/nuke-bomb.mp3?blob";
+import eatingSound from "/sounds/eating-chips-81092.mp3?blob";
 const nukeSoundURL = URL.createObjectURL(nukeSound);
 const eatingSoundURL = URL.createObjectURL(eatingSound);
 
