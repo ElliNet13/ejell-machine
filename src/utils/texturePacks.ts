@@ -19,7 +19,7 @@ const textureMapping = {
     note: "note.png",
     orientator: "orientator.png",
     disabler: "disabler.png",
-    jell: "jell.png",
+    ElliNet13: "ElliNet13.png",
     random: "random.png",
     portal: "portal.png",
     portalOff: "portalOff.png",

@@ -245,11 +245,11 @@ export function load() {
 
     //#endregion
 
-    const jell = CellType.create({
-        id: "jm.utils.jell",
-        name: "Jell Cell",
-        description: "Useless. Turns all touching cells into Jell cells.",
-        behavior: class JellCell extends Cell {
+    const ElliNet13 = CellType.create({
+        id: "jm.utils.ElliNet13",
+        name: "ElliNet13 Cell",
+        description: "Destroy! Turns all touching cells into ElliNet13 cells.",
+        behavior: class ElliNet13Cell extends Cell {
             private _generatedIn = this.grid.initial ? -1 : this.grid.tickCount;
             private get isGen() { return this.grid.tickCount == this._generatedIn; }
 
@@ -268,7 +268,7 @@ export function load() {
                 if (upCell && upCell.type != this.type) this.grid.loadCell(upCell.pos, this.type, upCell.direction);
             }
         },
-        textureName: "jell",
+        textureName: "ElliNet13",
 
         updateType: UpdateType.Random,
         updateOrder: -127,
@@ -563,7 +563,7 @@ export function load() {
     });
 
     Slot.add(orientator, disabler, note);
-    Slot.add(jell, random, portal, nuke);
+    Slot.add(ElliNet13, random, portal, nuke);
     Slot.add(piston, stickyPiston);
 
     // ctx.createTool("canOpen", "Automatically Can Open selected area", canOpen);

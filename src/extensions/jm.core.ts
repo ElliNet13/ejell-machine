@@ -220,7 +220,7 @@ export function load() {
     CellType.create({
         id: "?",
         name: "Unknown",
-        description: "Unknown cell type. Used when importing codes that contain cells that don't exist in this version of Jell Machine",
+        description: "Unknown cell type. Used when importing codes that contain cells that don't exist in this version of EJell Machine",
         behavior: Cell,
         textureName: "unknown",
         flip: d => d,
