@@ -3,6 +3,15 @@ import { CellType } from "@core/cells/cellType";
 import { Direction } from "@core/cells/direction";
 import { UpdateType } from "@core/grid/cellUpdates";
 import { Slot } from "@core/slot";
+import nukeSound from "@/sounds/logo.png?blob";
+const nukeSoundURL = URL.createObjectURL(nukeSound);
+
+const playSound = (url: string) => {
+    const audio = new Audio(url);
+    audio.play().catch((error) => {
+      console.error("Error playing sound:", error);
+    });
+  };
 
 export function load() {
     const drill = CellType.create({
@@ -36,6 +45,7 @@ export function load() {
             override push(dir: Direction, bias: number) {
                 if (this.disabled) return super.push(dir, bias);
                 this.grid.clear(this.grid.size);
+                playSound(nukeSoundURL)
                 return null;
             }
         },
