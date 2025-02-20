@@ -6,13 +6,9 @@ import { Direction } from "@core/cells/direction";
  * @param {string} url The URL of the sound file.
  * @param {number} [volume] The volume of the sound effect. Defaults to 0.5.
  */
-export const playSound = (url: string, volume?: number) => {
+export const playSound = (url: string, volume: number = 0.5) => {
     const audio = new Audio(url);
-    if (volume !== undefined) {
-        audio.volume = 0.5; // Set volume to 50%
-      } else {
-        audio.volume = volume; // Set volume to the arg
-    }
+    audio.volume = volume;
     audio.play().catch((error) => {
       console.error("Error playing sound:", error);
     });
