@@ -3,7 +3,7 @@ import { CellType } from "@core/cells/cellType";
 import { Direction } from "@core/cells/direction";
 import { UpdateType } from "@core/grid/cellUpdates";
 import { Slot } from "@core/slot";
-import { playSound } from "@utils/custom";
+import { playSound, getRandomDirection } from "@utils/custom";
 import nukeSound from "/sounds/nuke-bomb.mp3?blob";
 const nukeSoundURL = URL.createObjectURL(nukeSound);
 
@@ -49,5 +49,28 @@ export function load() {
         flip: d => d,
     });
 
-    Slot.add(drill, supernuke);
+    const cat = CellType.create({
+        id: "e.cat",
+        __rawId: 102,
+        name: "Cat",
+        description: "Moves forward one random direction cell and deletes all cells in the way while meowing.",
+        behavior: class MoverCell extends Cell {
+            override update() {
+                this.direction = getRandomDirection();
+                this.grid.cells.delete(this.pos.mi(this.direction))
+                super.push(this.direction, 1);
+            }
+
+            override push(dir: Direction, bias: number) {
+                if (this.disabled) return super.push(dir, bias);
+                return null;
+            }
+        },
+        textureName: "cat",
+
+        updateOrder: 3,
+        updateType: UpdateType.Directional,
+    });
+
+    Slot.add(drill, supernuke, cat);
 }
