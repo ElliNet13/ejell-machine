@@ -57,7 +57,10 @@ export function load() {
         behavior: class MoverCell extends Cell {
             override update() {
                 this.direction = getRandomDirection();
-                this.grid.cells.delete(this.pos.mi(this.direction))
+                const movePos = this.pos.mi(this.direction);
+                if (movePos !== this.pos) {
+                    this.grid.cells.delete(movePos);
+                }
                 super.push(this.direction, 1);
             }
 
