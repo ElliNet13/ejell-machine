@@ -45,6 +45,7 @@ const textureMapping = {
 
     // My stuff
     drill: "drill.png",
+    supernuke: "nukeclear.png",
 };
 const uiTextures = {
     play: "buttonPlay.png",

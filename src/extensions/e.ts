@@ -27,5 +27,21 @@ export function load() {
         updateType: UpdateType.Directional,
     });
 
-    Slot.add(drill);
+    const supernuke = CellType.create({
+        id: "e.nuke",
+        __rawId: 101,
+        name: "The SuperNuke",
+        description: "The trash cell and nuke cell mixed together, when you try to push it it clears the grid.",
+        behavior: class Supernuke extends Cell {
+            override push(dir: Direction, bias: number) {
+                if (this.disabled) return super.push(dir, bias);
+                this.grid.clear(this.grid.size);
+                return null;
+            }
+        },
+        textureName: "supernuke",
+        flip: d => d,
+    });
+
+    Slot.add(drill, supernuke);
 }
