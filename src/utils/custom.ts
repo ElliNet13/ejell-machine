@@ -1,15 +1,16 @@
 import { Direction } from "@core/cells/direction";
 
 
+
 /**
- * Play a sound effect.
- * @param {string} url The URL of the sound file.
- * @param {number} [volume] The volume of the sound effect. Defaults to 0.5.
+ * Plays the given audio blob.
+ * @param {Blob} audio The audio blob to play.
+ * @param {number} [volume=0.5] The volume to play the audio at, from 0 to 1.
  */
-export const playSound = (url: string, volume: number = 0.5) => {
-    const audio = new Audio(url);
-    audio.volume = volume;
-    audio.play().catch((error) => {
+export const playSound = (audio: Blob, volume: number = 0.5) => {
+    const audioelement = new Audio(URL.createObjectURL(audio));
+    audioelement.volume = volume;
+    audioelement.play().catch((error) => {
       console.error("Error playing sound:", error);
     });
   };  

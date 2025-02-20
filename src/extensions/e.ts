@@ -5,9 +5,6 @@ import { UpdateType } from "@core/grid/cellUpdates";
 import { Slot } from "@core/slot";
 import { playSound, getRandomDirection } from "@utils/custom";
 import nukeSound from "/sounds/nuke-bomb.mp3?blob";
-const nukeSoundURL = URL.createObjectURL(nukeSound);
-
-
 
 export function load() {
     const drill = CellType.create({
@@ -41,7 +38,7 @@ export function load() {
             override push(dir: Direction, bias: number) {
                 if (this.disabled) return super.push(dir, bias);
                 this.grid.clear(this.grid.size);
-                playSound(nukeSoundURL)
+                playSound(nukeSound)
                 return null;
             }
         },
