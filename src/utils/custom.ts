@@ -1,13 +1,18 @@
 import { Direction } from "@core/cells/direction";
 
+
 /**
- * Plays the sound at the given URL. If an error occurs, the error
- * is logged to the console.
- * @param url The URL of the sound to play.
+ * Play a sound effect.
+ * @param {string} url The URL of the sound file.
+ * @param {number} [volume] The volume of the sound effect. Defaults to 0.5.
  */
-export const playSound = (url: string) => {
+export const playSound = (url: string, volume?: number) => {
     const audio = new Audio(url);
-    audio.volume = 0.5; // Set volume to 50%
+    if (volume !== undefined) {
+        audio.volume = 0.5; // Set volume to 50%
+      } else {
+        audio.volume = volume; // Set volume to the arg
+    }
     audio.play().catch((error) => {
       console.error("Error playing sound:", error);
     });
