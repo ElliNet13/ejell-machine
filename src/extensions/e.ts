@@ -5,7 +5,9 @@ import { UpdateType } from "@core/grid/cellUpdates";
 import { Slot } from "@core/slot";
 import { playSound, getRandomDirection } from "@utils/custom";
 import nukeSound from "/sounds/nuke-bomb.mp3?blob";
+import eatingSound from "/sounds/nuke-bomb.mp3?blob";
 const nukeSoundURL = URL.createObjectURL(nukeSound);
+const eatingSoundURL = URL.createObjectURL(eatingSound);
 
 
 
@@ -46,20 +48,20 @@ export function load() {
             }
         },
         textureName: "supernuke",
-        flip: d => d,
     });
 
     const cat = CellType.create({
         id: "e.cat",
         __rawId: 102,
         name: "Cat",
-        description: "Moves forward one random direction cell and deletes all cells in the way while meowing.",
+        description: "Moves forward one random direction cell and deletes all cells in the way. (Might delete itself, its a little glichy)",
         behavior: class MoverCell extends Cell {
             override update() {
                 this.direction = getRandomDirection();
                 const movePos = this.pos.mi(this.direction);
                 if (movePos !== this.pos) {
                     this.grid.cells.delete(movePos);
+                    playSound(eatingSoundURL);
                 }
                 super.push(this.direction, 1);
             }
