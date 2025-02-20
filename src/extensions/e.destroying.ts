@@ -14,9 +14,7 @@ export function load() {
         description: "Moves forward one cell and deletes all cells in the way.",
         behavior: class MoverCell extends Cell {
             override update() {
-                if (!this.grid.cells.get(this.pos.mi(this.direction)).type.id.startsWith("jm.tunneling")) {
-                    this.grid.cells.delete(this.pos.mi(this.direction))
-                }
+                this.grid.cells.delete(this.pos.mi(this.direction))
                 super.push(this.direction, 1);
             }
 
