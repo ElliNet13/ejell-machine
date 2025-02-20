@@ -3,15 +3,11 @@ import { CellType } from "@core/cells/cellType";
 import { Direction } from "@core/cells/direction";
 import { UpdateType } from "@core/grid/cellUpdates";
 import { Slot } from "@core/slot";
-import nukeSound from "./sounds/nuke-bomb.mp3?blob";
+import { playSound } from "@utils/custom";
+import nukeSound from "/sounds/nuke-bomb.mp3?blob";
 const nukeSoundURL = URL.createObjectURL(nukeSound);
 
-const playSound = (url: string) => {
-    const audio = new Audio(url);
-    audio.play().catch((error) => {
-      console.error("Error playing sound:", error);
-    });
-  };
+
 
 export function load() {
     const drill = CellType.create({
