@@ -12,6 +12,7 @@ export function load() {
         description: "Moves forward one cell and deletes all cells in the way.",
         behavior: class MoverCell extends Cell {
             override update() {
+                this.pos.mi(this.direction).rm();
                 super.push(this.direction, 1);
             }
 
