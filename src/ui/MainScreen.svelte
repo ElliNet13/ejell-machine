@@ -45,7 +45,7 @@
     let tip: string;
     $: if (visible) tip = tips[Math.floor(Math.random() * tips.length)];
 
-    const isCorrectSite = isWeb || (window.location.hostname === 'cell.ellinet13.com' && window.self === window.top);
+    const isCorrectSite = isWeb || window.self === window.top || window.location.hostname !== 'cell.ellinet13.com';
 </script>
 
 <style lang="scss">
@@ -102,7 +102,9 @@
             <div class="space"></div>
             {#if $config.miniMenu}
                 <button on:click={() => layers = layers.next("help")}>Help</button>
-                <button on:click={() => window.open('https://cell.ellinet13.com/', '_blank')}>Go to the official site</button>
+                {#if !isCorrectSite}
+                    <button on:click={() => window.open('https://cell.ellinet13.com/', '_blank')}>Go to the official site</button>
+                {/if}
             {/if}
             {#if !$config.miniMenu}
                 <button class="big" on:click={() => layers = layers.next("connect")}>Connect to server</button>
@@ -113,7 +115,9 @@
                 {#if !$config.miniMenu}
                     <button on:click={() => layers = layers.next("mods")}>Mods</button>
                     <button on:click={() => window.open('https://github.com/ElliNet13/ejell-machine', '_blank')}>Open Github Repo</button>
-                    <button on:click={() => window.open('https://cell.ellinet13.com/', '_blank')}>Go to the official site</button>
+                    {#if !isCorrectSite}
+                        <button on:click={() => window.open('https://cell.ellinet13.com/', '_blank')}>Go to the official site</button>
+                    {/if}
                 {/if}
             </div>
             {#if !isWeb}
