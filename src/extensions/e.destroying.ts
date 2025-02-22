@@ -9,7 +9,7 @@ import nukeSound from "/sounds/nuke-bomb.mp3?blob";
 export function load() {
     const drill = CellType.create({
         id: "e.destroying.drill",
-        __rawId: 100,
+        __rawId: 2000, // Start at 200
         name: "Drill",
         description: "Moves forward one cell and deletes all cells in the way.",
         behavior: class MoverCell extends Cell {
@@ -31,7 +31,7 @@ export function load() {
 
     const supernuke = CellType.create({
         id: "e.destroying.nuke",
-        __rawId: 101,
+        __rawId: 2001,
         name: "The SuperNuke",
         description: "The trash cell and nuke cell mixed together, when you try to push it it clears the grid.",
         behavior: class Supernuke extends Cell {
@@ -47,7 +47,7 @@ export function load() {
 
     const cat = CellType.create({
         id: "e.destroying.cat",
-        __rawId: 102,
+        __rawId: 2002,
         name: "Cat",
         description: "Moves forward one random direction cell and deletes all cells in the way. (Might delete itself, its a little glichy)",
         behavior: class MoverCell extends Cell {

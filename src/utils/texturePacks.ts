@@ -47,6 +47,7 @@ const textureMapping = {
     drill: "drill.png",
     supernuke: "nukeclear.png",
     cat: "cat.png",
+    movergreen: "movergreen.png",
 };
 const uiTextures = {
     play: "buttonPlay.png",
